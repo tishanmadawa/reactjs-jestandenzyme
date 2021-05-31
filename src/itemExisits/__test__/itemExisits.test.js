@@ -1,7 +1,10 @@
+import { shallow, mount, configure } from "enzyme"
+import App from "../index"
+import Adapter from 'enzyme-adapter-react-16'
 
+configure({ adapter: new Adapter() })
 
 it("input text item test", () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div)
-    expect(ReactDOM).toContainElement('input')
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('input')).toBeTruthy()
 })
